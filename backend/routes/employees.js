@@ -14,6 +14,7 @@ router.get('/', verifyToken, isAdmin, async(req, res) => {
     }
 });
 
+
 //Add employee (ADMIN only)
 router.post('/', verifyToken, isAdmin, async(req, res) => {
 
@@ -28,6 +29,22 @@ router.post('/', verifyToken, isAdmin, async(req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 });
+
+// Get a single employee by ID (ADMIN only)
+router.get('/:id', verifyToken, isAdmin, async (req, res) => {
+  const { id } = req.params;
+  try {
+    const result = await db.query('SELECT * FROM employees WHERE id = $1', [id]);
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: 'Employee not found' });
+    }
+    res.json(result.rows[0]);
+  } catch (err) {
+    console.error('Error fetching employee:', err);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 // Update employee (ADMIN only)
 router.put('/:id', verifyToken, isAdmin, async(req, res) =>{
