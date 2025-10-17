@@ -148,7 +148,7 @@ export default function Dashboard() {
                     </td>
                   </tr>
                 ) : (
-                  employees.map((emp: any) => (
+                  employees.map((emp) => (
                     <tr key={emp.id} className="hover:bg-slate-50 transition-colors">
                       <td className="px-6 py-4 text-sm font-medium text-slate-900">{emp.name}</td>
                       <td className="px-6 py-4 text-sm text-slate-600">{emp.email}</td>
