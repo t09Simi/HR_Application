@@ -12,7 +12,7 @@ async function seedAdmin() {
         await db.query(`
             INSERT INTO users (name, email, password, role)
             VALUES ($1, $2, $3, $4)`
-            , [name, email, hashedPassword, 'ADMIN'])
+            , [name, email, hashedPassword, 'admin'])
             console.log('Admin created:', email, 'password:', password);
     }
     catch(err){
