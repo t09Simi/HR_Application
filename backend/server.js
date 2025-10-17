@@ -8,7 +8,12 @@ const authRoutes = require('./routes/auth');
 const employeeRoutes = require('./routes/employees');
 
 const app = express();
-app.use(cors());
+// Middleware
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true
+}));                                            // For local :app.use(cors());
+
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
