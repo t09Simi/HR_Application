@@ -34,19 +34,8 @@ export default function AddEmployee() {
       return;
     }
 
-    // DEBUG: Check token contents
-    try {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      console.log('🔍 Token payload:', payload);
-      console.log('📋 User role:', payload.role);
-    } catch (e) {
-      console.error('Failed to decode token:', e);
-    }
-
 
     try {
-      console.log('📤 Sending POST request to:', `${API_URL}/employees`);
-      console.log('📋 Request body:', formData);
       const res = await fetch(`${API_URL}/employees`, {
         method: 'POST',
         headers: {
@@ -56,7 +45,6 @@ export default function AddEmployee() {
         body: JSON.stringify(formData),
       });
 
-      console.log('📥 Response status:', res.status);
 
       if (!res.ok) throw new Error('Failed to add employee');
 
