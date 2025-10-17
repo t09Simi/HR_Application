@@ -5,6 +5,11 @@ A full-stack **HR Management System** built with **Node.js (Express)**, **Postgr
 This app provides secure **role-based access control** for Admins and Employees to manage organizational data.
 
 ---
+## Live Demo
+
+- Frontend Link - https://hr-application-frontend.onrender.com/login
+- Backend Link - https://hr-application-backend-qlb6.onrender.com
+---
 
 ## 🚀 Features
 
@@ -47,3 +52,16 @@ This app provides secure **role-based access control** for Admins and Employees 
 ### 1️⃣ Clone Repository
 ```bash
 git clone git@github.com:t09Simi/HR_Application.git
+```
+
+### 🛡️ Admin Login
+```
+email: johnswan@123
+password: admin123
+```
+
+### 👤 User Login
+```
+email: employee@company.com
+password: employee123
+```
