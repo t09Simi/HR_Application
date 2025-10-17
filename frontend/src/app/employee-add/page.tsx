@@ -53,8 +53,8 @@ export default function AddEmployee() {
       setTimeout(() => {
         router.push('/dashboard');
       }, 2000);
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
       setIsSubmitting(false);
     }
   };
@@ -115,7 +115,7 @@ export default function AddEmployee() {
         <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
           <div className="px-8 py-6 border-b border-slate-200">
             <h2 className="text-lg font-semibold text-slate-800">Employee Information</h2>
-            <p className="text-sm text-slate-500 mt-1">Enter the employee's details</p>
+            <p className="text-sm text-slate-500 mt-1">Enter the employee details</p>
           </div>
 
           <form onSubmit={handleSubmit} className="px-8 py-6 space-y-6">

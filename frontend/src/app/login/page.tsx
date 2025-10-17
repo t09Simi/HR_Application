@@ -22,8 +22,8 @@ export default function LoginPage() {
       localStorage.setItem('token', data.token);
       localStorage.setItem('role', data.user.role);
       router.push('/dashboard');
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 

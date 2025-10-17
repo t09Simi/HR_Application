@@ -42,8 +42,8 @@ export default function Dashboard() {
 
         const data = await res.json();
         setEmployees(data);
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'An error occurred');
       }
     };
 
@@ -68,8 +68,8 @@ export default function Dashboard() {
 
       if (!res.ok) throw new Error('Error deleting employee');
       setEmployees(employees.filter((emp) => emp.id !== id));
-    } catch (err: any) {
-      setError(err.message);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An error occurred');
     }
   };
 
