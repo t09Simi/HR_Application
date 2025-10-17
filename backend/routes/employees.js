@@ -20,7 +20,7 @@ router.post('/', verifyToken, async(req, res) => {
 
     const {name, email, position, department, salary} = req.body
     try{
-        if (req.user.role !== 'ADMIN'){
+        if (req.user.role !== 'admin'){
             return res.status(403).json({ error: 'Access denied, admin only'})
         }
         await db.query( `INSERT INTO employees(name, email, position, department, salary) VALUES ($1, $2, $3, $4, $5)`,
@@ -54,7 +54,7 @@ router.put('/:id', verifyToken, async(req, res) =>{
     const {id} = req.params
     const {name, email, position, department, salary} = req.body
     try{
-        if (req.user.role !== 'ADMIN'){
+        if (req.user.role !== 'admin'){
             return res.status(403).json({ error: 'Access denied, admin only'})
         }
         await db.query(` UPDATE employees SET name=$1, email=$2, position=$3, department=$4, salary=$5 WHERE id=$6`,
@@ -70,7 +70,7 @@ router.put('/:id', verifyToken, async(req, res) =>{
 router.delete('/:id', verifyToken, async(req, res) =>{
     const {id} = req.params     
     try{
-        if (req.user.role !== 'ADMIN'){
+        if (req.user.role !== 'admin'){
             return res.status(403).json({ error: 'Access denied, admin only'})
         }
         await db.query('DELETE FROM employees WHERE id=$1', [id])
