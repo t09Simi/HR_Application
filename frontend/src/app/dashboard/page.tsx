@@ -89,7 +89,7 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              { role === 'ADMIN' && <button
+              { role === 'admin' && <button
                 onClick={() => router.push('/employee-add')}
                 className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
               >
@@ -135,7 +135,7 @@ export default function Dashboard() {
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Position</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Department</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Salary</th>
-                  { role === 'ADMIN' && <th className="px-6 py-4 text-center text-sm font-semibold text-slate-700">Actions</th>}
+                  { role === 'admin' && <th className="px-6 py-4 text-center text-sm font-semibold text-slate-700">Actions</th>}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -161,7 +161,7 @@ export default function Dashboard() {
                       <td className="px-6 py-4 text-sm font-medium text-slate-900">
                         ${emp.salary.toLocaleString()}
                       </td>
-                      { role === 'ADMIN' && (
+                      { role === 'admin' && (
                       <td className="px-6 py-4">
                         <div className="flex justify-center gap-2">
                           <button

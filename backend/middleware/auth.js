@@ -20,7 +20,7 @@ function verifyToken(req, res, next) {
 }
 
 function isAdmin(req, res, next){
-    if(req.user.role !== 'ADMIN'){
+    if(req.user.role !== 'admin'){
         return res.status(403).json({ error: 'Access denied, admin only'})
     }
     next();
