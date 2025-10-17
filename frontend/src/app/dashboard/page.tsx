@@ -17,11 +17,14 @@ interface Employee {
 export default function Dashboard() {
   const [employees, setEmployees] = useState<Employee[]>([]);
   const [error, setError] = useState('');
+  const [role, setRole] =useState('');
   const router = useRouter();
 
   // Load employees
   useEffect(() => {
     const token = localStorage.getItem('token');
+    const userRole = localStorage.getItem('role');
+    setRole(userRole || '');
     if (!token) {
       router.push('/login');
       return;
@@ -86,13 +89,13 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="flex items-center gap-3">
-              <button
+              { role === 'ADMIN' && <button
                 onClick={() => router.push('/employee-add')}
                 className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2.5 rounded-lg hover:bg-blue-700 transition-colors shadow-sm font-medium"
               >
                 <Plus size={20} />
                 Add Employee
-              </button>
+              </button>}
               <button
                 onClick={handleLogout}
                 className="bg-slate-600 text-white px-4 py-2.5 rounded-lg hover:bg-slate-700 transition-colors shadow-sm font-medium"
@@ -132,7 +135,7 @@ export default function Dashboard() {
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Position</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Department</th>
                   <th className="px-6 py-4 text-left text-sm font-semibold text-slate-700">Salary</th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-slate-700">Actions</th>
+                  { role === 'ADMIN' && <th className="px-6 py-4 text-center text-sm font-semibold text-slate-700">Actions</th>}
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -145,7 +148,7 @@ export default function Dashboard() {
                     </td>
                   </tr>
                 ) : (
-                  employees.map((emp) => (
+                  employees.map((emp: any) => (
                     <tr key={emp.id} className="hover:bg-slate-50 transition-colors">
                       <td className="px-6 py-4 text-sm font-medium text-slate-900">{emp.name}</td>
                       <td className="px-6 py-4 text-sm text-slate-600">{emp.email}</td>
@@ -158,6 +161,7 @@ export default function Dashboard() {
                       <td className="px-6 py-4 text-sm font-medium text-slate-900">
                         ${emp.salary.toLocaleString()}
                       </td>
+                      { role === 'ADMIN' && (
                       <td className="px-6 py-4">
                         <div className="flex justify-center gap-2">
                           <button
@@ -176,6 +180,7 @@ export default function Dashboard() {
                           </button>
                         </div>
                       </td>
+                      )}
                     </tr>
                   ))
                 )}
