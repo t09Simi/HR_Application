@@ -21,3 +21,5 @@ async function seedEmployee() {
         console.error('Error seeding employee:', err);
     }   
 }
+
+seedEmployee();
