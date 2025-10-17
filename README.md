@@ -7,7 +7,7 @@ This app provides secure **role-based access control** for Admins and Employees 
 ---
 ## Live Demo
 
-- Frontend Link - https://hr-application-frontend.onrender.com/login
+- Frontend Link - https://hr-application-frontend.onrender.com
 - Backend Link - https://hr-application-backend-qlb6.onrender.com
 ---
 
