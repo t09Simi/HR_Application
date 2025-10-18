@@ -290,7 +290,7 @@ export default function EmployeeProfile() {
                         disabled={!isEditing}
                         className={`w-full px-4 py-3 border rounded-lg transition-colors ${
                           isEditing
-                            ? 'border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
+                            ? 'border-slate-300 bg-white text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
                             : 'border-slate-200 bg-slate-50 text-slate-600'
                         } outline-none`}
                         required
@@ -310,7 +310,7 @@ export default function EmployeeProfile() {
                         disabled={!isEditing}
                         className={`w-full px-4 py-3 border rounded-lg transition-colors ${
                           isEditing
-                            ? 'border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
+                            ? 'border-slate-300 bg-white text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
                             : 'border-slate-200 bg-slate-50 text-slate-600'
                         } outline-none`}
                         required
@@ -330,7 +330,7 @@ export default function EmployeeProfile() {
                         disabled={!isEditing}
                         className={`w-full px-4 py-3 border rounded-lg transition-colors ${
                           isEditing
-                            ? 'border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
+                            ? 'border-slate-300 bg-white text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
                             : 'border-slate-200 bg-slate-50 text-slate-600'
                         } outline-none`}
                       />
@@ -349,7 +349,7 @@ export default function EmployeeProfile() {
                         rows={3}
                         className={`w-full px-4 py-3 border rounded-lg transition-colors ${
                           isEditing
-                            ? 'border-slate-300 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
+                            ? 'border-slate-300 bg-white text-slate-900 focus:border-orange-500 focus:ring-2 focus:ring-orange-200'
                             : 'border-slate-200 bg-slate-50 text-slate-600'
                         } outline-none resize-none`}
                       />
@@ -367,9 +367,9 @@ export default function EmployeeProfile() {
                           value={formData.password}
                           onChange={handleInputChange}
                           placeholder="Leave blank to keep current password"
-                          className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none"
+                          className="w-full px-4 py-3 bg-white text-slate-900 border border-slate-300 rounded-lg focus:border-orange-500 focus:ring-2 focus:ring-orange-200 outline-none"
                         />
-                        <p className="text-xs text-slate-500 mt-1">
+                        <p className="text-xs text-slate-900 mt-1">
                           Only fill this if you want to change your password
                         </p>
                       </div>
