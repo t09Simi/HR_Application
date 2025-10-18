@@ -118,7 +118,13 @@ export default function EmployeeProfile() {
     }
 
     try {
-      const updateData: any = {
+      const updateData: {
+        name: string;
+        email: string;
+        address: string;
+        phone_number: string;
+        password?: string;
+      } = {
         name: formData.name,
         email: formData.email,
         address: formData.address,
