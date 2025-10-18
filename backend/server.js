@@ -7,6 +7,7 @@ const cors = require('cors');
 
 const authRoutes = require('./routes/auth');
 const employeeRoutes = require('./routes/employees');
+const profileRoutes = require('./routes/profile');
 
 const app = express();
 
@@ -24,6 +25,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/employees', employeeRoutes);
+app.use('/api/profile', profileRoutes);
 
 // Health check endpoint
 app.get('/', (req, res) => {
